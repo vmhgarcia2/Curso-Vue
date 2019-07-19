@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi primer Vue</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{titulo}}</h1>
+    <input type="text" v-model="nuevaFruta" @keyup.enter="agregarFruta">
+    <button @click="agregarFruta">Añadir fruta</button>
+    <ul>
+        <li v-for="fruta of frutas">
+            <button @click="fruta.cantidad--">-</button>
+            <input type="text" v-model.number="fruta.cantidad">
+            <button @click="fruta.cantidad++">+</button>
+            {{fruta.nombre}}
+            <span v-if="fruta.cantidad===0"> - Sin stock</span>
+        </li>
+    </ul>
+    <h3>Total: {{sumarFrutas}}</h3>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="codigo.js"></script>
+</body>
+</html>
